@@ -48,7 +48,6 @@ function App() {
   // Spin animation
   useEffect(() => {
     if (start) {
-      console.log('prize', prize)
       // dont touch!! :)
       const distance = prize > current ? prize - current : prize + 10 - current
       setCurrent(prize)
