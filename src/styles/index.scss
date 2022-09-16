@@ -1,7 +1,14 @@
 @import './reset.scss';
 
+@font-face {
+  font-family: 'SFRounded';
+  src: url('/SFProRounded.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'SFRounded', Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -14,24 +21,57 @@
 }
 
 .main {
-  background: #ccc;
+  background: #ebf0f5;
   width: 100vw;
-  height: 95vh;
-  // overflow: hidden;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   .title_wrapper {
     width: 100%;
-    height: 30%;
-    background: pink;
+    height: 25%;
   }
   .wheel_wrapper {
     height: 70%;
     position: relative;
-
-    #wheel {
-      transform-origin: center;
+    margin-bottom: 5vh;
+    .wheel {
+      height: 100%;
+      #wheel {
+        transform-origin: center;
+      }
+      .texts_wrapper {
+        position: absolute;
+        top: 12.5%;
+        width: 100%;
+        height: 75%;
+        transform-origin: center;
+        .text_wrapper {
+          left: calc((100% - 400px) / 2);
+          position: absolute;
+          width: 400px;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          transform-origin: center bottom;
+          .text {
+            text-align: center;
+            display: flex;
+            width: 2%;
+            justify-content: center;
+            font-weight: 500;
+            position: relative;
+            line-height: 1;
+            font-size: 1vw;
+            .icon {
+              position: absolute;
+              top: 15%;
+              font-size: 1.2vw;
+            }
+          }
+        }
+      }
     }
 
     .button_wrapper {
@@ -49,35 +89,64 @@
       position: absolute;
       top: 0;
       width: 100%;
-      height: 70px;
+      height: 7.5vh;
 
       #indicator {
         margin: 0 auto;
         transform-origin: center top;
       }
     }
-
-    .texts_wrapper {
-      position: absolute;
-      top: 12.5%;
-      width: 100%;
-      height: 75%;
-      transform-origin: center;
-      .text_wrapper {
-        left: calc((100% - 400px) / 2);
-        position: absolute;
-        width: 400px;
-        height: 100%;
+  }
+  .confetti_wrapper {
+    z-index: 100;
+  }
+  .prize_modal_wrapper {
+    position: fixed;
+    z-index: 100;
+    top: 40%;
+    left: 50%;
+    margin-top: -15vh; /* Negative half of height. */
+    margin-left: -17.5vw; /* Negative half of width. */
+    .prize_modal {
+      width: 35vw;
+      height: 30vh;
+      background: #fff;
+      border-radius: 1em;
+      .subheading_wrapper {
+        padding-top: 7.5%;
+        width: 100%;
+        text-align: center;
+        h4 {
+          font-size: 1.5vw;
+          color: #808080;
+        }
+      }
+      .prize {
+        width: 100%;
+        height: 50%;
+        margin-top: 3.5%;
         display: flex;
         justify-content: center;
-        transform-origin: center bottom;
-        .text {
+        align-items: center;
+        flex-direction: column;
+        h1 {
+          padding: 0 5%;
           text-align: center;
-          display: flex;
-          width: 50px;
-          font-weight: 500;
+          font-size: 3.5vw;
+          line-height: 1;
+        }
+        .icon {
+          margin-top: 2%;
+          font-size: 2vw;
         }
       }
     }
+  }
+  .black_filter {
+    position: fixed;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.2);
   }
 }
