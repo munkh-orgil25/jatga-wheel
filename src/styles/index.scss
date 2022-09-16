@@ -27,15 +27,16 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   .title_wrapper {
     width: 100%;
-    height: 25%;
+    height: 0%;
   }
   .wheel_wrapper {
     height: 70%;
     position: relative;
-    margin-bottom: 5vh;
+    // margin-bottom: 15vh;
     .wheel {
       height: 100%;
       #wheel {
@@ -58,6 +59,7 @@
           .text {
             text-align: center;
             display: flex;
+            margin-top: 4%;
             width: 2%;
             justify-content: center;
             font-weight: 500;
