@@ -21,7 +21,10 @@
 }
 
 .main {
-  background: #ebf0f5;
+  background: #010a32;
+  // background: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -29,18 +32,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .logo {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 5%;
+    width: 90vw;
+    align-items: center;
+    .left {
+      width: 17vw;
+    }
+    .right {
+      width: 17vw;
+    }
+  }
   .title_wrapper {
     width: 100%;
     height: 0%;
   }
   .wheel_wrapper {
-    height: 70%;
+    height: 80%;
     position: relative;
     // margin-bottom: 15vh;
+    // background: pink;
     .wheel {
       height: 100%;
+      transform-origin: center;
       #wheel {
         transform-origin: center;
+        transform: rotate(15deg);
       }
       .texts_wrapper {
         position: absolute;
@@ -60,12 +80,13 @@
             text-align: center;
             display: flex;
             margin-top: 3%;
+            // margin-right: 2%;
             width: 2%;
             justify-content: center;
             font-weight: 500;
             position: relative;
             line-height: 1;
-            font-size: 1vw;
+            font-size: 0.9vw;
             .icon {
               position: absolute;
               top: 15%;

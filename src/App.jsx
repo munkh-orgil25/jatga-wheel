@@ -11,6 +11,7 @@ import { TbShirt as ShirtIcon } from 'react-icons/tb'
 import { FaRegHeart as HeartIcon } from 'react-icons/fa'
 import Title from './components/Title'
 import Confetti from 'react-confetti'
+import Wheel12 from './components/Wheel12'
 
 function App() {
   const [start, setStart] = useState(false)
@@ -21,20 +22,23 @@ function App() {
   const [prize, setPrize] = useState(0)
   const [current, setCurrent] = useState(0)
   const [won, setWon] = useState(false)
+  const [lastPrize, setLastPrize] = useState(13)
 
   const wheelAnim = gsap.timeline()
 
   const prizes = [
-    { order: 0, name: 'Флашкард', icon: <GiftIcon /> },
+    { order: 0, name: 'Хөргөгчний наалт', icon: <GiftIcon /> },
+    { order: 11, name: "20'000₮", icon: <GiftIcon /> },
+    { order: 10, name: 'Баярлалаа', icon: <HeartIcon /> },
     { order: 9, name: 'IELTS 800 ном', icon: <BookIcon /> },
     { order: 8, name: 'Hippocards 2 сар', icon: <GiftIcon /> },
-    { order: 7, name: 'Hippo Merch', icon: <ShirtIcon /> },
-    { order: 6, name: 'Баярлалаа', icon: <HeartIcon /> },
+    { order: 7, name: 'Tote Bag', icon: <GiftIcon /> },
+    { order: 6, name: 'Буддаг ном', icon: <BookIcon /> },
     { order: 5, name: "50'000₮", icon: <GiftIcon /> },
-    { order: 4, name: 'Hippocards 6 сар', icon: <GiftIcon /> },
-    { order: 3, name: 'LIME дугаар', icon: <GiftIcon /> },
+    { order: 4, name: 'LIME дугаар', icon: <GiftIcon /> },
+    { order: 3, name: 'Hippocards 6 сар', icon: <GiftIcon /> },
     { order: 2, name: 'Хүүхдийн ном', icon: <BookIcon /> },
-    { order: 1, name: 'Hippocards 50% OFF', icon: <GiftIcon /> },
+    { order: 1, name: 'Түлхүүрийн оосор', icon: <GiftIcon /> },
   ]
 
   const durationAnim = gsap.to(incrementor, {
@@ -49,12 +53,12 @@ function App() {
   useEffect(() => {
     if (start) {
       // dont touch!! :)
-      const distance = prize > current ? prize - current : prize + 10 - current
+      const distance = prize > current ? prize - current : prize + 12 - current
       setCurrent(prize)
       wheelAnim.to('.wheel', {
         duration: 6,
         rotate: `+= ${
-          360 * Math.floor(duration) + distance * 36 + (Math.random() * 4 - 2)
+          360 * Math.floor(duration) + distance * 30 + (Math.random() * 3 - 1.5)
         }`,
         ease: 'power4.easeOut',
         onUpdate: () => {
@@ -92,24 +96,41 @@ function App() {
     if (!start) {
       setPressed(false)
       durationAnim.kill()
-      const prize = getRandomPrize()
+      let prize = getRandomPrize()
+      if (prize === lastPrize) {
+        prize = getRandomPrize()
+      }
       setPrize(prize)
+      setLastPrize(prize)
     }
     setStart(true)
   }
 
   return (
     <div className="main">
-      <div className="title_wrapper">{/* <Title /> */}</div>
+      <div className="logo">
+        <div className="left">
+          <img src="/digital.png" />
+        </div>
+        <div className="right">
+          <img src="/hippo.png" />
+        </div>
+      </div>
+      {/* <div className="title_wrapper">
+        <Title />
+      </div> */}
       <div className="wheel_wrapper">
         <div className="wheel">
-          <Wheel ref={wheel} />
+          {/* <Wheel ref={wheel} /> */}
+          <Wheel12 ref={wheel} />
           <div className="texts_wrapper">
             {prizes.map((prize, index) => (
               <div key={prize.order} className="text_wrapper">
                 <p
                   className="text"
-                  style={{ transform: `rotate(${36 * index}deg)` }}
+                  style={{
+                    transform: `rotate(${30 * index}deg)`,
+                  }}
                 >
                   {prize.name}
                   <span className="icon">{prize.icon}</span>
