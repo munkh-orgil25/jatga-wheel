@@ -28,16 +28,16 @@ function App() {
 
   const prizes = [
     { order: 0, name: 'Хөргөгчний наалт', icon: <GiftIcon /> },
-    { order: 11, name: "20'000₮", icon: <GiftIcon /> },
+    { order: 11, name: 'Flashcard', icon: <GiftIcon /> },
     { order: 10, name: 'Баярлалаа', icon: <HeartIcon /> },
     { order: 9, name: 'IELTS 800 ном', icon: <BookIcon /> },
     { order: 8, name: 'Hippocards 2 сар', icon: <GiftIcon /> },
     { order: 7, name: 'Tote Bag', icon: <GiftIcon /> },
-    { order: 6, name: 'Буддаг ном', icon: <BookIcon /> },
+    { order: 6, name: 'Буддаг/Хүүхдийн ном', icon: <BookIcon /> },
     { order: 5, name: "50'000₮", icon: <GiftIcon /> },
     { order: 4, name: 'LIME дугаар', icon: <GiftIcon /> },
     { order: 3, name: 'Hippocards 6 сар', icon: <GiftIcon /> },
-    { order: 2, name: 'Хүүхдийн ном', icon: <BookIcon /> },
+    { order: 2, name: 'Cardholder', icon: <BookIcon /> },
     { order: 1, name: 'Түлхүүрийн оосор', icon: <GiftIcon /> },
   ]
 
@@ -56,7 +56,7 @@ function App() {
       const distance = prize > current ? prize - current : prize + 12 - current
       setCurrent(prize)
       wheelAnim.to('.wheel', {
-        duration: 6,
+        duration: 0.5,
         rotate: `+= ${
           360 * Math.floor(duration) + distance * 30 + (Math.random() * 3 - 1.5)
         }`,
