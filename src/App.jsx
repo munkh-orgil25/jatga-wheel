@@ -56,7 +56,7 @@ function App() {
       const distance = prize > current ? prize - current : prize + 12 - current
       setCurrent(prize)
       wheelAnim.to('.wheel', {
-        duration: 0.5,
+        duration: 6,
         rotate: `+= ${
           360 * Math.floor(duration) + distance * 30 + (Math.random() * 3 - 1.5)
         }`,
