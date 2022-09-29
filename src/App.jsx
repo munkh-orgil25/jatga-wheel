@@ -28,7 +28,7 @@ function App() {
 
   const prizes = [
     { order: 0, name: 'Хөргөгчний наалт', icon: <GiftIcon /> },
-    { order: 11, name: 'Flashcard', icon: <GiftIcon /> },
+    { order: 11, name: 'Үзэг', icon: <GiftIcon /> },
     { order: 10, name: 'Баярлалаа', icon: <HeartIcon /> },
     { order: 9, name: 'IELTS 800 ном', icon: <BookIcon /> },
     { order: 8, name: 'Hippocards 2 сар', icon: <GiftIcon /> },
